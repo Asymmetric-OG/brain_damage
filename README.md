@@ -1,6 +1,6 @@
 # Diffusion Based Unsupervised Brain Tumor Detection
 
-<img width="1292" height="1080" alt="mri_diff_image" src="https://github.com/user-attachments/assets/bf141a53-a27e-4ce2-b6dd-029a10f909d6" />
+<img width="646" height="540" alt="mri_diff_image" src="https://github.com/user-attachments/assets/bf141a53-a27e-4ce2-b6dd-029a10f909d6" />
 
 ---
 
