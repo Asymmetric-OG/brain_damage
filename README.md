@@ -23,11 +23,11 @@ we call as the anomaly map. However a few adjustments in methodolgy do need to b
 ---
 
 ## B. MAIN COMPONENTS
-### B-2. Noise Function
+### B-2. Simplex Noise
 
-Gaussian Noise is widely used in synthetic image generation tasks, where the proces benfits from randomness and stochasticity. A random value (ε) is sampled from the Gaussian Distribution for each pixel which is then used as Noise (ε * beta). However this proves to be too noisy for our purpose of reconstructing an image structurally similar to the original image.  
+Gaussian Noise is widely used in synthetic image generation tasks, where the proces benfits from randomness and stochasticity. However it proves to be too noisy for our purpose of reconstructing an image structurally near-identical to the original image (Excluding anomaly if present).    
 
-Hence we use Simplex Noise
+Hence we use Simplex Noise.
 
 ### B-2. Noise Scheduler
 
