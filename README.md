@@ -23,13 +23,16 @@ we call as the anomaly map. However a few adjustments in methodolgy do need to b
 ---
 
 ## B. MAIN COMPONENTS
-### B-2. Simplex Noise
+### B-1. Simplex Noise
 
 Gaussian Noise is widely used in synthetic image generation tasks, where the proces benfits from randomness and stochasticity. However it proves to be too noisy for our purpose of reconstructing an image structurally near-identical to the original image (Excluding anomaly if present).    
 
-Hence we use Simplex Noise.
 
 ### B-2. Noise Scheduler
+
+The Noise scheduler controls and implements the forward and reverse diffusion processes.  
+
+#### B-2-a. Forward Diffusion
 
 The Noise Scheduler determines the rate at which an image gets corrupted by defining the `beta vs timestep` curve. Beta decides what factor of the Noise will be added at timestep t. Higher the beta, higher is the noise.  
 
@@ -43,6 +46,8 @@ Naturally there are many curves a noise scheduler can follow, but two of the mos
 <br>
 As we can see the cosine scheduler adds noise more gradually, letting intricate details of the image survive for a larger timestep.  
 Hence the use of Cosine Noise Scheduler in this project.
+
+#### B-2-b. Reverse Diffusion
 
 
 
