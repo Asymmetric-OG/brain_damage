@@ -1,6 +1,6 @@
 # Diffusion Based Unsupervised Brain Tumor Detection
 
-<img width="1292" height="700" alt="mri_diff_image" src="https://github.com/user-attachments/assets/bf141a53-a27e-4ce2-b6dd-029a10f909d6" />
+<img width="1920" height="1080" alt="mri_diff_image" src="https://github.com/user-attachments/assets/da5020ae-1341-4612-bda3-3ffb3de92b2b" />
 
 ## A. INTRODUCTION
 ### A-1. What is a Diffusion Model?
