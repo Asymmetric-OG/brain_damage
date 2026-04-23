@@ -1,9 +1,5 @@
 # Diffusion Based Unsupervised Brain Tumor Detection
 
-<img width="646" height="540" alt="mri_diff_image" src="https://github.com/user-attachments/assets/bf141a53-a27e-4ce2-b6dd-029a10f909d6" />
-
----
-
 ## A. INTRODUCTION
 ### A-1. What is a Diffusion Model?
 Denoising Diffusion Probablistic Models or DDPMs were developed and are traditionally used for the purpose of Synthetic Image Generation. 
@@ -25,4 +21,8 @@ reconstruct a normal image.
 Finally, when an anomolous image is noised to x_t and then subsequently denoised by the model, the result will be an image that is structurally 
 identical (ideally) to the anomolous image in all respects, except the anomaly itself. The difference between this reconstructed image and the original image is what
 we call as the anomaly map. However a few adjustments in methodolgy do need to be made in order to obtain near-optimal results.
+
+<img width="646" height="540" alt="mri_diff_image" src="https://github.com/user-attachments/assets/bf141a53-a27e-4ce2-b6dd-029a10f909d6" />
+
+---
 
