@@ -22,3 +22,27 @@ we call as the anomaly map. However a few adjustments in methodolgy do need to b
 
 ---
 
+## B. MAIN COMPONENTS
+### B-2. Noise Function
+
+Gaussian Noise is widely used in synthetic image generation tasks, where the proces benfits from randomness and stochasticity. A random value (ε) is sampled from the Gaussian Distribution for each pixel which is then used as Noise (ε * beta). However this proves to be too noisy for our purpose of reconstructing an image structurally similar to the original image.  
+
+Hence we use Simplex Noise
+
+### B-2. Noise Scheduler
+
+The Noise Scheduler determines the rate at which an image gets corrupted by defining the `beta vs timestep` curve. Beta decides what factor of the Noise will be added at timestep t. Higher the beta, higher is the noise.  
+
+Naturally there are many curves a noise scheduler can follow, but two of the most common ones are:
+
+- Linear
+- Cosine
+
+<img width="1920" height="658" alt="noisesched" src="https://github.com/user-attachments/assets/a4cf2058-8bb2-4b6f-8e50-4e8a387981cf" />  
+
+<br>
+As we can see the cosine scheduler adds noise more gradually, letting intricate details of the image survive for a larger timestep.  
+Hence the use of Cosine Noise Scheduler in this project.
+
+
+
