@@ -5,6 +5,27 @@
 
 <img width="1920" height="1080" alt="mri_diff_image" src="https://github.com/user-attachments/assets/da5020ae-1341-4612-bda3-3ffb3de92b2b" />
 
+## Table of Contents
+- [A. INTRODUCTION](#a-introduction)
+  - [A-1. What is a Diffusion Model?](#a-1-what-is-a-diffusion-model)
+  - [A-2. Who Asked?](#a-2-who-asked)
+- [B. MAIN COMPONENTS](#b-main-components)
+  - [B-1. Simplex Noise](#b-1-simplex-noise)
+    - [B-1-a. Why betray Gaussian Noise?](#b-1-a-why-betray-gaussian-noise)
+    - [B-1-b. Math behind Simplex](#b-1-b-math-behind-simplex)
+    - [B-1-c. Tweaking Hyperparameters](#b-1-c-tweaking-hyperparameters)
+  - [B-2. Noise Scheduler](#b-2-noise-scheduler)
+    - [B-2-a. Forward Diffusion](#b-2-a-forward-diffusion)
+    - [B-2-b. Reverse Diffusion](#b-2-b-reverse-diffusion)
+  - [B-3. U-NET Architecture](#b-3-u-net-architecture)
+- [C. TRAINING AND INFERENCE](#c-training-and-inference)
+  - [C-1. Training the U-NET](#c-1-training-the-u-net)
+    - [C-1-a. Image Preprocessing](#c-1-a-image-preprocessing)
+    - [C-1-b. Training Hyperparameters](#c-1-b-training-hyperparameters)
+    - [C-1-c. Training Trajectory](#c-1-c-training-trajectory)
+  - [C-2. Generating Anomaly Maps](#c-2-generating-anomaly-maps)
+- [D. BIBLIOGRAPHY](#d-bibliography)
+
 ## A. INTRODUCTION
 ### A-1. What is a Diffusion Model?
 Denoising Diffusion Probablistic Models or DDPMs were developed and are traditionally used for the purpose of Synthetic Image Generation. 
