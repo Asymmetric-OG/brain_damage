@@ -1,4 +1,7 @@
-# Diffusion Based Unsupervised Brain Tumor Detection
+<h1 align="center">
+  Unsupervised Brain Tumor Detection <br>
+  Using Diffusion
+</h1>
 
 <img width="1920" height="1080" alt="mri_diff_image" src="https://github.com/user-attachments/assets/da5020ae-1341-4612-bda3-3ffb3de92b2b" />
 
