@@ -182,6 +182,8 @@ anomaly_map = (reconstructed_image - original_image).pow(2)
   
 For this process to work well, it is extremely important to choose the timestep carefully. A low timestep might not corrupt the tumor at all and a higher timestep might corrupt the natural structure of the brain too much.
 
+<img width="1920" height="641" alt="recon" src="https://github.com/user-attachments/assets/e577bb39-8484-4a79-a47f-ab528e98e0e4" />
+
 ---
 
 # D. BIBLIOGRAPHY
