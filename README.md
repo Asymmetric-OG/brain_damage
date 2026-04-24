@@ -50,6 +50,7 @@ To interactively observe how the noise changes with these hyperparameters
 ```
 streamlit run simplex_visualizer.py
 ```
+##
 
 ### B-2. Noise Scheduler
 
