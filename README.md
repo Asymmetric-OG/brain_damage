@@ -166,4 +166,6 @@ Going through the entire process while understanding every step intricately look
 
 1. [Denoising Diffusion Probabilistic Models](https://arxiv.org/abs/2006.11239)
 2. [AnoDDPM: Anomaly Detection with Denoising Diffusion Probabilistic Models using Simplex Noise](https://www.researchgate.net/publication/362897861_AnoDDPM_Anomaly_Detection_with_Denoising_Diffusion_Probabilistic_Models_using_Simplex_Noise)
-3. 
+3. [Diffusion Models | Math Explained](https://youtu.be/HoKDTa5jHvg?si=UkMMEt90aM246jOS)
+
+---
