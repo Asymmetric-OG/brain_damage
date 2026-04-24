@@ -150,3 +150,20 @@ lr_scheduler = get_cosine_schedule_with_warmup(
 ##
 
 ### C-2. Generating Anomaly Maps
+
+An MRI-Scan of a brain (Healthy/Tumorous) is noised upto a chosen `timestep t`. This noisy image ($$x_t$$) is then passed through the model to obtain predicted noise ($$noise_pred$$). These three values are passed to the `scheduler.reconstruct(x0, noise_pred, t)` function to obtain the reconstructed image. The anomaly map is obtained by finding out the square error between the original image and reconstructed image.
+```
+anomaly_map = (reconstructed_image - original_image).pow(2)
+```
+  
+For this process to work well, it is extremely important to choose the timestep carefully. A low timestep might not corrupt the tumor at all and a higher timestep might corrupt the natural structure of the brain too much.
+
+---
+
+# D. BIBLIOGRAPHY
+
+Going through the entire process while understanding every step intricately look a lot of reading and watching from these resources.
+
+1. [Denoising Diffusion Probabilistic Models](https://arxiv.org/abs/2006.11239)
+2. [AnoDDPM: Anomaly Detection with Denoising Diffusion Probabilistic Models using Simplex Noise](https://www.researchgate.net/publication/362897861_AnoDDPM_Anomaly_Detection_with_Denoising_Diffusion_Probabilistic_Models_using_Simplex_Noise)
+3. 
