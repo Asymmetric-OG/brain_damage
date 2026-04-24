@@ -160,7 +160,7 @@ lr_scheduler = get_cosine_schedule_with_warmup(
     num_training_steps=total_training_steps
 )
 ```
-#### C-1-c. Training Trajectory
+#### C-1-c. Way too many epochs
 
 | Epoch | Train_Loss | Val_Loss |
 |----------|----------|----------|
