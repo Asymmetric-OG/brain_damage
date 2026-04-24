@@ -30,10 +30,10 @@ Gaussian Noise is widely used in synthetic image generation tasks, where the pro
 In contrast to Gaussian Noise, where the noise added to each pixel is randomly sampled, Simplex noise uses a deterministic function to calculate the noising of a pixel. The magnitude of noise added to a pixel has a degree of randomness to it, however the distribution of noise among pixels across the image is highly correlated.
 #### B-1-b. Math behind Simplex
 Let's imagine 2-D space is divided into a grid of the simplest closed figures possible (Simplices) in this dimension - Triangles.
+<br>
 <img width="1920" height="800" alt="simplex exp" src="https://github.com/user-attachments/assets/5952a22c-5146-41f3-af4d-b61b4a93dc3f" />
 <br>
 Point P represents a pixel of an image existing in this 2-D space and every vertex in this grid is assigned a random vector. Noise for pixel P depends only on the vertex vectors of the triangle pixel P is in and its distances from those vertices. The dot product between each vertex vector and distance vector between P and that vertex is calculated. For each vertex its contribution is regularized by a distance factor (Higher the distance lower the contribution). The total summation of these values is the final noise for Pixel P.  
-<br>
 <br>
 It can be observed that points near P will lie in the same or adjacent triangles, making the noise added to them mathematically similar. This creates the smoothness in Simplex Noise.
 #### B-1-c. Tweaking Hyperparameters
