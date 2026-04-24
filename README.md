@@ -29,7 +29,7 @@ Gaussian Noise is widely used in synthetic image generation tasks, where the pro
 
 In contrast to Gaussian Noise, where the noise added to each pixel is randomly sampled, Simplex noise uses a deterministic function to calculate the noising of a pixel. The magnitude of noise added to a pixel has a degree of randomness to it, however the distribution of noise among pixels across the image is highly correlated.
 #### B-1-b. Math behind Simplex
-Let's imagine 2-D space is divided into a grid of the simplest closed figures possible (Simplices) in this dimension - Triangles.
+Let's imagine 2-D space is divided into a grid of the simplest closed figures possible (Simplices) in this dimension - Triangles.  
 <br>
 <img width="1920" height="800" alt="simplex exp" src="https://github.com/user-attachments/assets/5952a22c-5146-41f3-af4d-b61b4a93dc3f" />
 <br>
@@ -37,7 +37,19 @@ Point P represents a pixel of an image existing in this 2-D space and every vert
 <br>
 It can be observed that points near P will lie in the same or adjacent triangles, making the noise added to them mathematically similar. This creates the smoothness in Simplex Noise.
 #### B-1-c. Tweaking Hyperparameters
-The overall texture of simplex noise is defined by it's `frequency`. For the purpose of this project, where MRI scans are highly textured due to the brain's folds, we stack multiple layers of simplex noise on top of each others. `Octaves` and `Decay control` how these layers are stacked.
+
+| Hyperparameter | Chosen value | Description |
+|----------|----------|----------|
+| Base frequency | $2^{-5}$  | Lower frequency results in spread out noise while Higher frequency creates spotty noise. |
+| Octaves  | 6 | Number of layers, with each subsequent layer having higher frequencies. |
+| Decay  | 0.8 | The magnitude of each subsequent layer is multiplied by the decay factor, so as to make sure Higher frequency layers don't dominate. |
+
+The overall texture of simplex noise is defined by it's `frequency`. For the purpose of this project, where MRI scans are highly textured due to the brain's folds, we stack multiple layers of simplex noise on top of each others. `Octaves` and `Decay` control how these layers are stacked.
+
+To interactively observe how the noise changes with these hyperparameters
+```
+streamlit run simplex_visualizer.py
+```
 
 ### B-2. Noise Scheduler
 
@@ -59,6 +71,7 @@ As we can see the cosine scheduler adds noise more gradually, letting intricate 
 Hence the use of Cosine Noise Scheduler in this project.
 
 #### B-2-b. Reverse Diffusion
+
 
 
 
