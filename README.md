@@ -124,6 +124,7 @@ no_tumor_transform = transforms.Compose([
 ])
 ```
 #### C-1-b. Training Hyperparameters
+A cosine learning rate scheduler was used to ensure a smooth training process which is critical for sensitive processes such as diffusion.  
 
 ```
 t_epochs=250
@@ -135,8 +136,6 @@ lr_scheduler = get_cosine_schedule_with_warmup(
     num_training_steps=total_training_steps
 )
 ```
-A cosine learning rate scheduler was used to ensure a smooth training process which is critical for sensitive processes such as diffusion.
-
 #### C-1-c. Training Trajectory
 
 | Epoch | Train_Loss | Val_Loss |
@@ -150,4 +149,4 @@ A cosine learning rate scheduler was used to ensure a smooth training process wh
 
 ##
 
-### Generating Anomaly Maps
+### C-2. Generating Anomaly Maps
