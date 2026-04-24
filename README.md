@@ -24,9 +24,20 @@ we call as the anomaly map. However a few adjustments in methodolgy do need to b
 
 ## B. MAIN COMPONENTS
 ### B-1. Simplex Noise
+#### B-1-a. Why betray Gaussian Noise?
+Gaussian Noise is widely used in synthetic image generation tasks, where the process benefits from randomness and stochasticity. However it proves to be too noisy for our purpose of reconstructing an image structurally near-identical to the original image (Excluding anomaly if present).  
 
-Gaussian Noise is widely used in synthetic image generation tasks, where the proces benfits from randomness and stochasticity. However it proves to be too noisy for our purpose of reconstructing an image structurally near-identical to the original image (Excluding anomaly if present).    
-
+In contrast to Gaussian Noise, where the noise added to each pixel is randomly sampled, Simplex noise uses a deterministic function to calculate the noising of a pixel. The magnitude of noise added to a pixel has a degree of randomness to it, however the distribution of noise among pixels across the image is highly correlated.
+#### B-1-b. Math behind Simplex
+Let's imagine 2-D space is divided into a grid of the simplest closed figures possible (Simplices) in this dimension - Triangles.
+<img width="1920" height="800" alt="simplex exp" src="https://github.com/user-attachments/assets/5952a22c-5146-41f3-af4d-b61b4a93dc3f" />
+<br>
+Point P represents a pixel of an image existing in this 2-D space and every vertex in this grid is assigned a random vector. Noise for pixel P depends only on the vertex vectors of the triangle pixel P is in and its distances from those vertices. The dot product between each vertex vector and distance vector between P and that vertex is calculated. For each vertex its contribution is regularized by a distance factor (Higher the distance lower the contribution). The total summation of these values is the final noise for Pixel P.  
+<br>
+<br>
+It can be observed that points near P will lie in the same or adjacent triangles, making the noise added to them mathematically similar. This creates the smoothness in Simplex Noise.
+#### B-1-c. Tweaking Hyperparameters
+The overall texture of simplex noise is defined by it's `frequency`. For the purpose of this project, where MRI scans are highly textured due to the brain's folds, we stack multiple layers of simplex noise on top of each others. `Octaves` and `Decay control` how these layers are stacked.
 
 ### B-2. Noise Scheduler
 
