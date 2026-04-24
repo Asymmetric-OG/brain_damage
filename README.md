@@ -68,10 +68,27 @@ Naturally there are many curves a noise scheduler can follow, but two of the mos
 
 <br>
 As we can see the cosine scheduler adds noise more gradually, letting intricate details of the image survive for a larger timestep.  
-Hence the use of Cosine Noise Scheduler in this project.
+Hence the use of Cosine Noise Scheduler in this project.<br>
+<br>
 
+```
+scheduler.forward_diffusion(x0, noise, t)
+```
+Injects image with `timestep=t` amount of noise.
 #### B-2-b. Reverse Diffusion
 
+1. reverse_timestep : Samples $$x_{t-1}$$ from $$x_t$$ and predicted noise. More useful for synthetic image generation as a step by step denoising process is noisy for accurate reconstruction.
+```
+scheduler.reverse_timestep(xt, noise_pred, t)
+```
+2. reconstruct : Predicts $$x_0$$ directly from $$x_t$$ given predicted noise. This is the function we use to get the reconstructed image from the noisy image through a one-shot calculation based on the derivation of minimum log-prob loss for P($$x_0$$) from P($$x_t$$).
+```
+scheduler.reconstruct(xt, noise_pred, t)
+```
+
+---
+
+## U-NET ARCHITECTURE
 
 
 
