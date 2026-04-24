@@ -87,9 +87,67 @@ scheduler.reverse_timestep(xt, noise_pred, t)
 scheduler.reconstruct(xt, noise_pred, t)
 ```
 
+##
+
+### B-3. U-NET Architecture
+
+<img width="1448" height="800" alt="Unet" src="https://github.com/user-attachments/assets/e56296d0-1ee4-4b4f-ac90-a3af05f1ab8b" />
+<br>
+
+U-NET is an encoder-decoder Convolutional Neural Network architecture that specialises in image-to-image translation through a downsampling and upsampling process.
+    
+1. Encoder : The downsampling part of a U-NET convolves an image into a dense representation which represents its high level features and details.
+2. Decoder : The upsampling part of a U-NET takes the dense representation as input along with skip connections from corresponding encoder levels and interpolates it into a high resolution output image  
+  
+We train the U-NET to take a Noisy image ($$x_t$$) as input, encode it into a dense representation and then decode it into the output, which is the noise that was added to it at timestep t.
+
 ---
 
-## U-NET ARCHITECTURE
+## C. TRAINING AND INFERENCE
 
+### C-1. Training the U-NET
 
+The model was trained on 2000+ MRI scans of healthy (Non-tumerous) brains across multiple different contrast weightings (T1, T2, Flair, etc).  
+#### C-1-a. Image Preprocessing
+Slight augmentations were applied to the image to prevent overfitting and ensure the model adjusts to slight variations present in modern MRI-scans.  
 
+```
+no_tumor_transform = transforms.Compose([
+    transforms.Resize((128, 128)),
+    transforms.RandomAffine(
+        degrees=2,
+        translate=(0.02, 0.02),
+        scale=(0.98, 1.02),
+    ),
+    transforms.ToTensor(),
+    transforms.Normalize([0.5], [0.5])
+])
+```
+#### C-1-b. Training Hyperparameters
+
+```
+t_epochs=250
+optimizer = torch.optim.AdamW(unet.parameters(), lr=1e-4)
+total_training_steps = len(diff_tloader) * t_epochs
+lr_scheduler = get_cosine_schedule_with_warmup(
+    optimizer=optimizer,
+    num_warmup_steps=1500,
+    num_training_steps=total_training_steps
+)
+```
+A cosine learning rate scheduler was used to ensure a smooth training process which is critical for sensitive processes such as diffusion.
+
+#### C-1-c. Training Trajectory
+
+| Epoch | Train_Loss | Val_Loss |
+|----------|----------|----------|
+|    10      |   0.1041     |   0.0902   |
+|    50      |   0.0600     |   0.0707   |
+|    100     |   0.0496     |   0.0521   |
+|    150     |   0.0393     |   0.0425   |
+|    200     |   0.0379     |   0.0355   |
+|    250     |   0.0332     |   0.0357   |
+
+##
+
+### Generating Anomaly Maps
