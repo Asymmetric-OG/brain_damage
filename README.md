@@ -1,8 +1,20 @@
 <h1 align="center">
   Unsupervised Brain Tumor Detection <br>
   Using Diffusion
+
 </h1>
 
+<h2 align="center">
+  
+[![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+  [![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white)](https://pytorch.org/)
+  [![TorchVision](https://img.shields.io/badge/TorchVision-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white)](https://pytorch.org/vision/stable/index.html)
+  [![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white)](https://numpy.org/)
+  [![Matplotlib](https://img.shields.io/badge/Matplotlib-%23ffffff.svg?style=for-the-badge&logo=Matplotlib&logoColor=black)](https://matplotlib.org/)
+  [![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B.svg?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io/)
+  
+</h2>
+  
 <img width="1920" height="1080" alt="mri_diff_image" src="https://github.com/user-attachments/assets/da5020ae-1341-4612-bda3-3ffb3de92b2b" />
 
 ## Table of Contents
